@@ -24,6 +24,63 @@ TEST(libapp, test_numbers_sum2)
 	ASSERT_EQ(res2, 100);
 }
 
+TEST(libapp, test_breckets_numbers_sub_mult)
+{
+	char s[] = "2*(2-2)";
+	double res;
+
+	res = calculate(s, NULL);
+	convert(res);
+	ASSERT_EQ(res, 0);
+}
+
+TEST(libapp, test_breckets_numbers_sub_mult2)
+{
+	char s[] = "2*(2-2)";
+	double res2, res;
+	res = calculate(s, NULL);
+	res2 = convert(res);
+	ASSERT_EQ(res2, 0);
+}
+
+TEST(libapp, test_brackets_and_numbers)
+{
+	char s[] = "2+10/(1+4)";
+	double res;
+
+	res = calculate(s, NULL);
+	convert(res);
+	ASSERT_EQ(res, 4);
+}
+
+TEST(libapp, test_brackets_and_numbers2)
+{
+	char s[] = "2+10/(1+4)";
+	double res2, res;
+	res = calculate(s, NULL);
+	res2 = convert(res);
+	ASSERT_EQ(res2, 100);
+}
+
+TEST(libapp, test_brackets_and_numbers_2)
+{
+	char s[] = "2+10/-(1+4)";
+	double res;
+
+	res = calculate(s, NULL);
+	convert(res);
+	ASSERT_EQ(res, 0);
+}
+
+TEST(libapp, test_brackets_and_numbers_22)
+{
+	char s[] = "2+10/-(1+4)";
+	double res2, res;
+	res = calculate(s, NULL);
+	res2 = convert(res);
+	ASSERT_EQ(res2, 0);
+}
+
 TEST(libapp, test_brackets_and_number)
 {
 	char s[] = "(2)";
